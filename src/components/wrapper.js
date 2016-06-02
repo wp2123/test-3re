@@ -7,7 +7,6 @@ var Wrapper = React.createClass({
       <div>
         <h1>Hello, test 3re!</h1>
         {this.props.children}
-        <VisibleTodoList />
       </div>
     );
   }
