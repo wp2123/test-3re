@@ -1,29 +1,12 @@
-console.log('hello, test app');
-
 var React = require('react');
-var ReactDom = require('react-dom');
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
-var browserHistory = ReactRouter.browserHistory;
+var ReactDOM = require('react-dom');
+var Provider = require('react-redux').Provider;
+var store = require('./reducers');
+var router = require('./router');
 
-var App = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <h1>Hello, test 3re!</h1>
-        {this.props.children}
-      </div>
-    );
-  }
-});
-
-var routes = (
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-    </Route>
-  </Router>
+ReactDOM.render(
+  <Provider store={store}>
+    {router}
+  </Provider>,
+  document.getElementById('container')
 );
-
-ReactDom.render(routes, document.getElementById('container'));
