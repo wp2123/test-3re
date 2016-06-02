@@ -14,8 +14,8 @@ var todos = function (state, action) {
       newState.push(todo(undefined, action));
       return newState;
     case 'TOGGLE_TODO':
-      return _.map(newState, function (todo) {
-        return todo(todo, action);
+      return _.map(newState, function (item) {
+        return todo(item, action);
       });
     default:
       return newState || DEFAULT_TODOS;

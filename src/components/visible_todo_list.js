@@ -13,6 +13,9 @@ var VisibleTodoList = React.createClass({
   addTodo: function (text) {
     this.props.addTodo(text);
   },
+  toggleTodo: function (id) {
+    this.props.toggleTodo(id);
+  },
   render: function () {
     var todos = [];
     this.props.todos.forEach(function (todo) {
@@ -33,7 +36,7 @@ var VisibleTodoList = React.createClass({
       <div>
         <SetFilter onSetFilter={this.setVisibility} />
         <AddTodo onAddTodo={this.addTodo} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onToggleTodo={this.toggleTodo} />
       </div>
     );
   }
@@ -53,6 +56,9 @@ var mapDispatchToProps = function (dispatch) {
     },
     setVisibility: function (filter) {
       dispatch(actions.setVisibility(filter));
+    },
+    toggleTodo: function (id) {
+      dispatch(actions.toggleTodo(id));
     }
   };
 };

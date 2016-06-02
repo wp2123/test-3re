@@ -1,9 +1,12 @@
 var React = require('react');
 
 var Todo = React.createClass({
+  toggleTodo: function () {
+    this.props.onToggleTodo(this.props.todo.id);
+  },
   render: function () {
     return (
-      <li>{this.props.todo.text}</li>
+      <li style={{color: this.props.todo.isFinished ? 'red' : '#000'}} onClick={this.toggleTodo}>{this.props.todo.text}</li>
     );
   }
 });
